@@ -1,22 +1,33 @@
 //Once you complete a problem, open up Chrome and check the answer in the console.
 
 
-var arr = [10,20,30];
+var arrOne = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item the given array.
 
   //Code Here
+var first = function(arrOne) {
+  return arrOne[0];
 
+};
+
+first(arrOne);
 
 //Next problem
 
 
 
-var arr = [40,50,60];
+var arrTwo = [40,50,60];
 //Create a function named 'last' that is given 'arr' as the argument and returns the last item the given array.
 
 
   //Code Here
+var last = function(arrTwo) {
+  var num1 = arrTwo.length - 1; 
+  var last = arrTwo[num1];
+  return last;
+};
 
+last(arrTwo);
 
 //Next Problem
 
@@ -25,7 +36,13 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
   //Code Here
+var looper = function(family){
+  for (i = 0; i < family.length; i++) {
+    alert(family[i]);
+  }
+};
 
+looper(family);
 
 //Next problem
 
@@ -36,6 +53,19 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
   //Code Here
 
+var reversedLooper = function(letters){
+
+  for (i = letters.length - 1; i < letters.length; i--) {
+
+
+    alert(letters[i]);
+    if (i === 0) {
+      break;
+    }
+  }
+};
+
+reversedLooper(letters);
 
 //Next Problem
 
@@ -44,7 +74,23 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
   //Code Here
+var evenFinder = function (nums){
+  
 
+  for (var i = 0; i < nums.length; i++){
+    var newNum = nums[i] % 2;
+    if (newNum !== 0) {
+      nums.splice(i, 1);
+        i--;
+    }
+    
+  }
+
+};
+
+evenFinder(nums);
+
+alert(nums);
 
 //Next problem
 
@@ -53,12 +99,26 @@ var nums = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 var evens = [];
 var odds = []
 //Write a function called divider that is given three arguments, nums, evens, and odds.
-//Have divider return an Array with the first item in the array being the evens array (all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums).
+//Have divider return an Array with the first item in the array being the evens array (all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums)
 
 
 
   //Code Here
+var divider = function (nums, evens, odds){
+  for (var i = 0; i < nums.length; i++)
+    
+      if ((nums[i] % 2) === 0) {
+        evens.push(nums[i]);
+      }
+      else{
+        odds.push(nums[i]);
+      }
+};
 
+divider(nums, evens, odds);
+
+alert(evens);
+alert(odds);
 
 //Next Problem
 
@@ -71,6 +131,20 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 
   //Code Here
 
+getRandomArbitrary();
+
+var newFun = function (getRandomArbitrary, numbers) {
+  for(var i = 0; i < numbers.length; i++){
+    if (numbers[i] === getRandomArbitrary) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+};
+
+newFun(getRandomArbitrary, numbers);
 
 //Next problem
 
@@ -80,7 +154,15 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes is given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
+var reverse = function (str) {
+  var strSplit = str.split(' ');
+  var strSplitRev = strSplit.reverse();
+  var strSplitRevString = strSplitRev.toString();
+  alert(strSplitRevString);
+  return strSplitRevString;
+};
 
+reverse(str);
 
 //Next Problem
 
@@ -88,8 +170,9 @@ var str = 'this is my sentence';
 var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 /*
   Here we're going to write a function that mimics going shopping and checking things off of our grocery list,
-  and adding new items to our list. Write a function called removeItem that is given two arguments, the first is myGroceryList, and the
-  second is an item to remove from myGroceryList. If the second argument (or the item to add or remove) matches an item in myGroceryList,
+  and adding new items to our list. Write a function called removeItem that is given two arguments, 
+  the first is myGroceryList, and the second is an item to remove from myGroceryList. 
+  If the second argument (or the item to add or remove) matches an item in myGroceryList,
   remove that item from the your grocery list and return the new, updated grocery list. Once you do that,
   write another function called addItem that is given two arguments, the first is myGroceryList
   and the second is an item to add to your grocery list. In addItem add the item you passed in to
@@ -97,6 +180,18 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
   //Code Here
+var removeItem = function (myGroceryList, itemToBeRemoved) {
+  for (var i = 0; i < myGroceryList.length; i++){
+    if (myGroceryList[i] === itemToBeRemoved){
+      myGroceryList.splice(i, 1);
+      }
+    }
+    return myGroceryList;
+};
+
+ 
+
+ removeItem(myGroceryList, 'hotpockets');
 
 //removeItem('chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem('Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -120,10 +215,16 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
-  //Code Here
+//Code Here
+var addTen = function (numbers) {
+    for (i = 0; i < numbers.length; i++) {
+        var newNums = parseInt(numbers[i]);
+        var sum = newNums + 10;
+        alert(sum);
+    }
+};
 
-
-
+addTen(numbers);
 //Next Problem
 
 
@@ -142,11 +243,34 @@ for(var i = 0; i < num2; i++){
 //Write a function that is given arr1 and arr2 is it's only arguments. Return the array which is longest.
 
   //Code Here
+var brandNewFun = function(arr1, arr2) {
+  var num1 = arr1.length;
+  var num2 = arr2.length;
+  if (num1 > num2) {
+    return "arr1";
+  }
+  else {
+    return "arr2";
+  }
 
+};
+
+brandNewFun(arr1, arr2);
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
   'both' should return a new array full of numbers that are found in both arr1 and arr2.
 */
 
+
   //Code Here
+
+var newArr = function (arr1, arr2) {
+  var addArr = [];
+  addArr.push(arr1, arr2);
+  alert(addArr);
+
+};
+
+newArr(arr1, arr2);
+
