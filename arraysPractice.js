@@ -196,6 +196,15 @@ var removeItem = function (myGroceryList, itemToBeRemoved) {
 //removeItem('chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem('Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
+var addItem = function (myGroceryList, itemToBeAdded) {
+  
+      myGroceryList.push(itemToBeAdded);
+    
+  
+  return myGroceryList;
+};
+
+addItem(myGroceryList, 'Red Bull');
 
 
 //Next Problem
